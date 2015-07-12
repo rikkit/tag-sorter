@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "TagSorter.Fs", "src\TagSorter.Fs\TagSorter.Fs.fsproj", "{2309DD36-11FE-46F8-AD6C-7AAD3C08743D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TagSorter", "src\TagSorter\TagSorter.csproj", "{8A40A599-8075-4C31-8862-31D8B064266C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2309DD36-11FE-46F8-AD6C-7AAD3C08743D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2309DD36-11FE-46F8-AD6C-7AAD3C08743D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2309DD36-11FE-46F8-AD6C-7AAD3C08743D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2309DD36-11FE-46F8-AD6C-7AAD3C08743D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A40A599-8075-4C31-8862-31D8B064266C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A40A599-8075-4C31-8862-31D8B064266C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A40A599-8075-4C31-8862-31D8B064266C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A40A599-8075-4C31-8862-31D8B064266C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
