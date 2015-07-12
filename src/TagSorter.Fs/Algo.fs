@@ -1,5 +1,4 @@
-﻿
-namespace TagSorter.Fs
+﻿namespace TagSorter.Fs
 
 open System.Collections.Generic
 open IF.Lastfm.Core
@@ -14,7 +13,7 @@ type Node(name :string, ?links :IDictionary<Node,int>) =
         and public set value =
             _links <- value
 
-type public Algo(apiKey :string, apiSecret :string) = 
+type public Algo(apiKey :string, apiSecret :string, breadth :int) = 
     let lookup = new Dictionary<string, Node>()
     let client = new LastfmClient(apiKey, apiSecret)
     
@@ -25,10 +24,12 @@ type public Algo(apiKey :string, apiSecret :string) =
         async {
             if (depth <= 0) then return ()
             else
+                printfn "Loading %s" tag.name
                 let! response = client.Tag.GetSimilarAsync(tag.name) |> Async.AwaitTask
 
                 let result =
                     response
+                    |> Seq.take breadth
                     |> Seq.mapi (fun i related ->
                         let node =
                             if (lookup.ContainsKey related.Name) then lookup.[related.Name]
@@ -37,6 +38,8 @@ type public Algo(apiKey :string, apiSecret :string) =
                                 lookup.Add(related.Name, newNode)
                                 newNode
                             )
+
+                        printfn "   %s %d" node.name i
                         (node, i)
                     )
                     |> dict
@@ -48,5 +51,6 @@ type public Algo(apiKey :string, apiSecret :string) =
                         this.fillGraph(kv.Key, depth - 1)
                     )
                     |> Async.Parallel
+                    |> Async.RunSynchronously
                     |> ignore
         }
